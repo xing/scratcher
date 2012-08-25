@@ -1,7 +1,6 @@
 Scratcher = (function ($, public_) {
 
   public_.View = Backbone.View.extend({
-    views:              [],
     templateName:       "override", // change this
     shouldFetch:        true, // or false
     shouldRenderLoader: true, // or false
@@ -11,6 +10,7 @@ Scratcher = (function ($, public_) {
 
     initialize: function() {
       _.bindAll(this, "render", "renderLoader", "navigate");
+      this.views              = [];
       this.templateName       = this.options.templateName || this.templateName;
       this.dataType           = this.options.dataType || this.dataType;
       if ( this.dataType === "none") {
